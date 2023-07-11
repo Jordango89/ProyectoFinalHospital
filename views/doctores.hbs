@@ -1,0 +1,48 @@
+<h1>CENTRO HOSPITALARIO BACKEND</h1>
+<h2>LISTADO DE DOCTORES</h2>
+<table>
+<thead>
+    <tr>
+        <th>Cedula</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Especialidad</th>
+        <th>Consultorio</th>
+        <th>Correo</th>
+        <th>Opciones</th>
+    </tr>
+</thead>
+    <tbody>
+        {{#each doctores}}
+        <tr>
+            <form action="/dcotores/actualizar/{{cedula}}" method="post">
+            <td><input type="text" value="{{cedula}}" disabled></td>
+            <td><input type="text" id="nombre" name="nombre" value="{{nombre}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}></td>
+            <td><input type="text" id="apellido" name="apellido" value="{{apellido}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}></td>
+            <td><select id="especialidad" name="especialidad" value="{{especialidad}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}>
+            <option>-----  Seleccione la especialidad  -----</option>
+                <option value="Medicina General">Medicina General</option>
+                <option value="Cardiología">Cardiología</option>
+                <option value="Medicina Interna">Medicina Interna</option>
+                <option value="Dermatología">Dermatología</option>
+                <option value="Rehabilitación Física">Rehabilitación Física</option>
+                <option value="Psicología">Psicología</option>
+                <option value="Odontología">Odontología</option>
+                <option value="Radiología">Radiología</option></select></td>
+            <td><input type="text" id="consultorio" name="consultorio" value="{{consultorio}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}></td>
+            <td><input type="email" id="correo" name="correo" value="{{correo}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}></td>
+            <td>
+            {{#if ../estado}}
+            <a href="/doctores/eliminar/{{cedula}}">Eliminar</a> <br><br>
+            <a href="/doctores/enviar/{{@key}}">Actualizar</a>
+            {{else}}
+            <input type="submit" value="Enviar">
+            {{/if}}
+            </td>
+            </form>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<a class="volver" href="/">Volver</a>
+<a href="doctores/agregar-doctor">Agregar Doctor</a>

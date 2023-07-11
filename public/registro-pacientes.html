@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Hospitalario</title>
+    <link rel="stylesheet" href="stylesheets/style-formulario.css">
+</head>
+
+<body>
+    <header>
+        <h1>CENTRO HOSPITALARIO BACKEND</h1>
+    </header>
+    <main>
+        <form action="./agregar" method="post">
+            <h2>REGISTRO DE PACIENTES</h2>
+            <label for="cedula">Cedula:<span> *</span></label>
+            <input type="number" id="cedula" name="cedula" min="0" required><br>
+            <label for="nombre">Nombre:<span> *</span></label>
+            <input type="text" id="nombre" name="nombre" required><br>
+            <label for="apellido">Apellido:<span> *</span></label>
+            <input type="text" id="apellido" name="apellido" required><br>
+            <label for="edad">Edad:<span> *</span></label>
+            <input type="number" id="edad" name="edad" required><br>
+            <label for="telefono">Telefono:<span> *</span></label>
+            <input type="number" id="telefono" name="telefono" required><br>
+            <input type="submit" value="Enviar">
+        </form>
+        <a class="volver" href="/pacientes">Volver</a>
+    </main>
+</body>
+
+</html>
