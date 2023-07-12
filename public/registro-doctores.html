@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Hospitalario</title>
-    <link rel="stylesheet" href="/stylesheets/style-formulario.css">
+    <link rel="stylesheet" href="/public/stylesheets/style-formulario.css">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <label for="apellido">Apellido:<span> *</span></label>
             <input type="text" id="apellido" name="apellido" required><br>
             <label for="cedula">Número de Cédula:<span> *</span></label>
-            <input type="text" id="cedula" name="cedula" required><br>
+            <input type="text" id="cedula" name="cedula" min="0" required><br>
             <label for="consultorio">Consultorio:<span> *</span></label>
             <input type="text" id="consultorio" name="consultorio" required><br>
             <label for="correo">Correo de contacto:<span> *</span></label>

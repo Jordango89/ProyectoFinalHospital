@@ -4,7 +4,7 @@ const { connection } = require('../database/conexion.js')
 
 //Traer la informacion de Workbench para completar la tabla cita con mas informacion
 router.get('/', function (req, res, next) {
-    connection.query('SELECT cm.id,cm.fecha, cm.id_mascota, mas.nombre, med.nombres, med.apellidos, med.consultorio FROM cita_medica cm, mascotas mas, medicos med WHERE cm.id_mascota = mas.cedula_duenio AND cm.id_medico= med.cedula', (error, results) => {
+    connection.query('SELECT cm.id,cm.fecha, cm.id_paciente, pac.nombre, doc.nombre, doc.apellido, doc.consultorio FROM cita_medica cm, pacientes pac, doctores doc WHERE cm.id_paciente=pac.cedula AND cm.id_doctor=doc.cedula', (error, results) => {
         if (error) {
             console.log("Error en la consulta", error)
             res.status(500).send("Error en la consulta")

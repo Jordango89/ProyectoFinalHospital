@@ -21,14 +21,14 @@
             <td><input type="text" id="apellido" name="apellido" value="{{apellido}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}></td>
             <td><select id="especialidad" name="especialidad" value="{{especialidad}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}>
             <option>-----  Seleccione la especialidad  -----</option>
-                <option value="Medicina General">Medicina General</option>
-                <option value="Cardiología">Cardiología</option>
-                <option value="Medicina Interna">Medicina Interna</option>
-                <option value="Dermatología">Dermatología</option>
-                <option value="Rehabilitación Física">Rehabilitación Física</option>
-                <option value="Psicología">Psicología</option>
-                <option value="Odontología">Odontología</option>
-                <option value="Radiología">Radiología</option></select></td>
+                <option value="Medicina General"{{#ifCond especialidad '==' "Medicina General"}}selected {{/ifCond}}>Medicina General</option>
+                <option value="Cardiología"{{#ifCond especialidad '==' "Cardiología"}}selected {{/ifCond}}>Cardiología</option>
+                <option value="Medicina Interna"{{#ifCond especialidad '==' "Medicina Interna"}}selected {{/ifCond}}>Medicina Interna</option>
+                <option value="Dermatología"{{#ifCond especialidad '==' "Dermatología"}}selected {{/ifCond}}>Dermatología</option>
+                <option value="Rehabilitación Física"{{#ifCond especialidad '==' "Rehabilitación Física"}}selected {{/ifCond}}>Rehabilitación Física</option>
+                <option value="Psicología"{{#ifCond especialidad '==' "Psicología"}}selected {{/ifCond}}>Psicología</option>
+                <option value="Odontología"{{#ifCond especialidad '==' "Odontología"}}selected {{/ifCond}}>Odontología</option>
+                <option value="Radiología"{{#ifCond especialidad '==' "Radiología"}}selected {{/ifCond}}>Radiología</option></select></td>
             <td><input type="text" id="consultorio" name="consultorio" value="{{consultorio}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}></td>
             <td><input type="email" id="correo" name="correo" value="{{correo}}" {{#ifCond @key '!=' ../claveSeleccionada}}{{../opcion}}{{/ifCond}}></td>
             <td>
@@ -36,7 +36,9 @@
             <a href="/doctores/eliminar/{{cedula}}">Eliminar</a> <br><br>
             <a href="/doctores/enviar/{{@key}}">Actualizar</a>
             {{else}}
+            {{#ifCond @key '==' ../claveSeleccionada}}
             <input type="submit" value="Enviar">
+            {{/ifCond}}
             {{/if}}
             </td>
             </form>
@@ -45,4 +47,6 @@
     </tbody>
 </table>
 <a class="volver" href="/">Volver</a>
+{{#if estado}}
 <a href="doctores/agregar-doctor">Agregar Doctor</a>
+{{/if}}
